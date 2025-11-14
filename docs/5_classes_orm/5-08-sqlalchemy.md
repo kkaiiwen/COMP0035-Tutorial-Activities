@@ -57,7 +57,7 @@ class User(Base):
     fullname = mapped_column(String)
 ```
 
-You may also see the following style which defines the columns using `Column` which does not support all the 
+You may also see the following style which defines the columns using `Column` which does not support all the
 configuration that `mapped_column` does.
 
 ```python
@@ -121,11 +121,12 @@ You will need the following syntax:
         pass
     ```
 - `def ClassName(Base):` inherit the base when you define your class
-- `__tablename__='class_name''` define the table name. This is optional, if ou don't specify it will default to the
+- `__tablename__ = 'class_name'` define the table name. This is optional, if ou don't specify it will default to the
   class name in lowercase.
 - `id = mapped_column(Integer, primary_key=True)` for a PK field
 - `name: Mapped[str] = mapped_column(String(50), nullable=True)` for a non-key field. `nullable=True` denotes an
   optional field, i.e. one that can have a null value, `nullable=False` means a value is required and prevents null.
+  `nullable=False` is the default for primary keys and that it's good practice to explicitly set it for required fields.
 
 ## Relationships
 
@@ -140,17 +141,18 @@ erDiagram
     Pet {
         int id PK
         str name
-        int owner_id FK "Maps to user"
+        int owner_id FK "Maps to Person"
     }
     Person ||--o{ Pet: ""
 ```
 
 To define relationships you define the ForeignKey field e.g. `owner_id = mapped_column(ForeignKey("person.id"))`
 
-You can also define a relationship using `sqlalchemy.orm.relationship` that lets the Person know which Pets they own,
-and each Pet know who its owner (Person) is.
+You can also define a relationship using `sqlalchemy.orm.relationship` that lets the `Person` know which `Pets` they
+own,
+and each `Pet` know who its owner (`Person`) is.
 
-This is an example from the SQLAlchemy documentation showing how to define this for a User with Addresses (email
+This is an example from the SQLAlchemy documentation showing how to define this for a `User` with `Addresses` (email
 address).
 
 ```python
@@ -183,6 +185,25 @@ class Address(Base):
     # Relationship
     user: Mapped["User"] = relationship(back_populates="addresses")
 ```
+
+### Cascading delete
+
+You can configure a relationship so that when a parent object is deleted, its related child objects are also deleted
+automatically. This is done using the `cascade` parameter:
+
+```python
+pets: Mapped[List["Pet"]] = relationship(
+    back_populates="owner",
+    cascade="all, delete-orphan"
+)
+```
+
+This means:
+
+- `all`: apply all default cascade behaviors (save-update, merge, refresh-expire, expunge, delete).
+- `delete-orphan`: delete child objects that are no longer associated with a parent.
+
+This is optional but can be useful.
 
 ### Activity: add Pets table and relationships
 

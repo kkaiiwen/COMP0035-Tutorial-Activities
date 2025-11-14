@@ -12,13 +12,8 @@ This week's activities introduce you to:
 The activities are **not** exemplars for the coursework; since many of the examples are partial solutions only.
 
 There are other techniques that can be used for this stage beyond the few covered here; students aiming for higher marks
-are encouraged to read more widely for this topic and to choose an appropriate blend of methods to use. A few starter
-guides are in the repository:
-
-- [Persona](persona.md)
-- [Problem statement](problem-statement.md)
-- [Product vision](product-vision.md)
-- [Use cases and use case diagram](use-cases.md)
+are encouraged to read more widely for this topic and to choose an appropriate blend of methods to use. There are some
+activities on Moodle that introduce other techniques.
 
 ## Complete the activities
 

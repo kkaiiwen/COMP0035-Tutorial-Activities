@@ -2,7 +2,7 @@
 
 ## Approaches to documenting requirements
 
-Select a structure to formally record the requirements. The two options likely to be of most use for this
+Select a natural language structured format to formally record the requirements. The two options likely to be of most use for this
 course are:
 
 - User stories

@@ -1,7 +1,10 @@
 # 6. Using SQLModel to add data to an SQLite database
 
-To add a single record to a database table is conceptually similar to the code used with sqlite: create the instance,
-add it, commit it.
+To add a single record to a database table is conceptually similar to the code used with sqlite: 
+
+- create the instance
+- add it
+- commit it
 
 ```python
 hero_1 = Hero(name="Deadpond", secret_name="Dive Wilson")
@@ -15,9 +18,8 @@ with Session(engine) as session:
     session.commit()
 ```
 
-To add data to the database, you can read the values into classes and create object instances. There are many ways you
-could do this. Since you already have code to read from .xslx into a pandas DataFrame, use that. The code would be
-structured something like this:
+To add data to the database, you can read the values from the data file and create object instances. One way to do this 
+is to read the data into a pandas DataFrame first, for example:
 
 ```python
 import pandas as pd
@@ -27,7 +29,7 @@ from mymodels import MyData  # Replace with your actual model
 # 1. Read Excel file
 df = pd.read_excel("your_data.xlsx")
 
-# 2. Convert DataFrame rows to SQLModel instances
+# 2. Convert DataFrame rows of values to SQLModel instances
 records = []
 for _, row in df.iterrows():
     record = MyData(**row.to_dict())

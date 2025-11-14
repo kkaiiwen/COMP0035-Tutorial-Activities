@@ -5,11 +5,10 @@
 By the time you are ready to start gathering, documenting and analysing the requirements for a system or app, you would
 have some understanding of what the project, or product, is about. You may have one or more of:
 
+- Persona
 - Problem statement
-- Product vision or definition
 - Goals/objectives
 - Questions to answer from the data
-- Persona, or other description of the target audience
 
 From these:
 

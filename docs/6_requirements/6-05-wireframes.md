@@ -14,8 +14,8 @@ It provides an outline of the structure and layout and presents the main informa
 
 The following examples show both hand drawn and digital wireframes:
 
-| Hand-drawn                                                                                       | Digital                                                           |
-|:-------------------------------------------------------------------------------------------------|:------------------------------------------------------------------|
+| Hand-drawn                                                                                    | Digital                                                        |
+|:----------------------------------------------------------------------------------------------|:---------------------------------------------------------------|
 | ![Low fidelity wireframe by Jack Dorsey (early Twitter design)](../img/twitter_wireframe.png) | ![Digital wireframe of Facebook](../img/digital_wireframe.png) |
 
 ## Why create a wireframe?
@@ -74,14 +74,15 @@ Wireframes use generic shapes such as:
 
 ![wireframe-elements.png](../img/wireframe-elements.png)
 
+You can hand draw wireframes.
 
-You can hand draw wireframes. Most basic shapes can be created in Powerpoint.
-
-There are numerous online wireframe tools such as Balsamiq, Adobe, etc. They usually require sign up and if you use
+There are numerous online wireframe tools. They usually require sign up and if you use
 these, ensure you save and download your designs in an image format (e.g., png, jpd, pdf) before the trial expires.
 
+Most basic shapes can also be created in PowerPoint.
+
 While not design tools, if your wireframes contain charts, and you want to understand the options, these chart chooser
-tools may help:
+tools may help. Note that choosing and designing charts is not required for the coursework.
 
 - [data visualisation catalogue](https://datavizcatalogue.com/index.html)
 - [interactive chart chooser](https://depictdatastudio.com/charts/)
@@ -94,7 +95,7 @@ The following attempt to sketch the screens for the paralympic games fact pages,
 ![Paralympics app wireframes](../img/wireframe-para-quiz.png)
 
 Draw your own wireframes for the student user stories related to taking a quiz and saving their score. There is
-a very basic wireframe PowerPoint file in the '/docs/6_requirements' folder.
+a very basic wireframe PowerPoint file in the '/docs/6_requirements/extra' folder.
 
 Do your wireframes highlight any new user stories that need to be added? Or any constraints that need to be added to the
 existing user stories?

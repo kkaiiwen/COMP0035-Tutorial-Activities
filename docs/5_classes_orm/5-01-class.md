@@ -1,16 +1,27 @@
 # 1. Introduction to Python classes
 
-A Python class is way of bundling data (attributes) and behaviour (methods) together. They are often described as
-being a "blueprint" for creating objects. Objects specific instances of things with data values for the attributes.
+A Python class is way of bundling data (attributes) and behaviour (methods) together. Classes are often described as
+a "blueprint" for creating objects. Objects specific instances of things, with actual data values for the attributes.
 
-Consider the Paralympics scenario. Each Paralympics such as Paris 2024, has multiple sports such as Boccia. Boccia
-has multiple events such as "Men's individual BC1" or "Mixed Pairs BC4".
+Consider the Paralympics scenario. Each Paralympic Games such as Paris 2024, includes multiple sports, such as Boccia.
+Each sport has multiple events, for example Boccia has "Men's individual BC1" or "Mixed Pairs BC4".
 
-An event might have attributes such as name, sport, category, competing athletes. It may also have behaviour such as to
-describe the event; or to register athletes for the event. This can be written as a Python class.
+An event might have attributes such as:
 
-Men's 100m T54, an Athletics event for classification T54 (wheelchair racing) is an example of a specific instance, or
-object, that can be created from the event class.
+- name
+- sport
+- category
+- competing athletes
+
+It may also have behaviours such as:
+
+- describe the event
+- register athletes
+
+This can be represented as a Python class.
+
+For example, _Men's 100m T54_, an athletics event for classification T54 (wheelchair racing), is a specific instance (
+object), of an _event_ class.
 
 A Python class to represent an event can be written as follows:
 
@@ -49,25 +60,23 @@ class ParalympicEvent:
         self.athletes.append(athlete_name)
 ```
 
-To break this down:
+Key concepts in the class definition are:
 
-- `class ParalympicEvent:` is the keyword `class` defines this as a Python class. Unlike functions, Class names start
-  with capital letters and do not use underscores.
-- docstring: classes include docstrings at the class level and then for each function within it. This example uses
+- `class ParalympicEvent:` the keyword `class` defines this as a Python class. Class names typically start with a
+  capital letter and use CamelCase.
+- `docstring`: describes the class and its methods. This example uses
   the [Google style of class docstring](https://google.github.io/styleguide/pyguide.html#384-classes).
-- `def __init__(self, name, sport, classification, athletes)`: - `__init__` is a special method used to initialize new
-  objects from a class, also referred to as the constructor. When you create a new object for the class this lets you
-  set the value of its attributes. The parameter `self` is how the current object refers to itself. It lets you access
+- `def __init__(self, name, sport, classification, athletes)`: - `__init__` is a special method, the constructor method, used to initialize new
+  objects from a class. When you create a new object for the class this lets you set the value of its attributes. The parameter `self` is how the current object refers to itself. It lets you access
   and modify its attributes (variables).
-- `self.name` is an example of an attribute for the class
-- `def describe()` is a method of the class
+- `self.name, self.sport` are _attributes_ of the class
+- `describe()` and `register_athlets()` are methods of the class
 
-This is only an introduction to the core features of a class.
+This is a basic introduction to the core features of a class.
 
 ## Creating objects from a class
 
-To create an object to represent a specific event, you pass values using the rules of its constructor. In this case we
-can create an instance of an event by providing the name, sport and classification:
+To create an object to represent a specific event, pass values to the constructor. 
 
 ```python
 event = ParalympicEvent(
@@ -77,7 +86,7 @@ event = ParalympicEvent(
 )
 ```
 
-To use the methods of the class use the dot notation:
+Use dot notation to call methods:
 
 ```python
 event.describe()  # Should print the event description, "Athletes competing" will be empty
@@ -88,15 +97,13 @@ event.describe()  # Should print the event again, "Athletes competing" should in
 ## Activity: Create an instance of a class and use its methods
 
 1. The ParalympicEvent class is in [starter_class.py](../../src/activities/starter/starter_class.py).
-2. Use the class to create an instance for a given event and register an athlete.
+2. Use the class to create an instance for a given event, and register an athlete.
 
 ## Activity: Create an Athlete class
 
-1. An athlete is likely to have more detail than their name.
-2. Add a class to create an Athlete. Include relevant attributes such as name, the team they represent and their
-   disability class.
-3. Add a method that prints the details of the class. Rather than the `describe()` method shown in the example above
-   create a string representation of the class. To do this you can overwrite the default method by defining a method
+1. An athlete likely has more detail than just their name.
+2. Create a class _Athlete_ with attributes such as name, the team they represent and their disability classification.
+3. Add a method that prints the athlete's details. Instead of `describe()`, create a string representation of the class. To do this you can overwrite the default method by defining a method
    called `__str__(self)`. See [example here](https://www.codecademy.com/resources/docs/python/dunder-methods/str).
 4. Create an instance of the class and print it.
 

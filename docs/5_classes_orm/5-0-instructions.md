@@ -2,22 +2,22 @@
 
 _*Theme: Using Python to work with data*_
 
-This topic relates to coursework 2. It is not needed for coursework 1.
+Note: This topic relates to Coursework 2 and is not needed for Coursework 1.
 
-This week introduces concepts related to classes and how these may be used when working with data from databases. You
-should work through all the activities as the concepts are related and knowledge should be progressively built through
-the activities.
+This week introduces concepts related to classes and how they can be used when working with data from databases. You
+should work through all the activities, as the concepts build on each other and are designed to be learned
+progressively.
 
-Each type of class discussed in activities 1, 2, and 4 varies in syntax which can seem confusing. You will
-mostly use SQLModel with an SQLite database in COMP0034 and COMP0035, so focus on that syntax.
+Each type of class discussed in Activities 1, 3, 4, and 8 has different syntax, which can seem confusing at first.
+However, in COMP0034 and COMP0035, you will primarily use SQLModel with an SQLite database, so focus on that syntax.
 
-The main aims this week are that you understand:
+By the end of this week, you should understand:
 
-- what is a class, its attributes and methods
-- what does it mean when one class "inherits" from another
-- that ORM is a pattern for mapping from a Python class to a database table
+- What a class is, including its attributes and methods
+- What it means when one class inherits from another
+- That ORM (Object-Relational Mapping) is a pattern for mapping Python classes to database tables
 
-... and that you are able to:
+You should also be able to:
 
 - Define a class using SQLModel that maps to a database table
 - Create an SQLite database from classes defined using SQLModel

@@ -1,17 +1,19 @@
-## 2. Class inheritance and composition
+# 2. Class inheritance and composition
 
 ## Class inheritance
 
-Inheritance is a feature in object-oriented programming that allows one class (called a child or subclass) to inherit
-attributes and methods from another class (called a parent or superclass).
+Inheritance is a feature in object-oriented programming that allows one class (called a **child** or **subclass**) to
+inherit
+attributes and methods from another class (called a **parent** or **superclass**).
 
-It aims to:
+Benefits of inheritance include:
 
 - Reuse code across related classes
 - Organize code more logically
 - Extend functionality without rewriting everything
 
-Let's say we have a base class Athlete, and we want to create a more specific class Runner that inherits from it:
+For example, you have an Athlete class. Now you want to add a more specific class Runner that inherits from it and adds
+specific data and methods that are only relevant for runner:
 
 ```python
 # Base class
@@ -42,22 +44,20 @@ runner1.introduce()  # Inherited method
 runner1.race_info()  # Subclass-specific method
 ```
 
-The Athlete class is inherited by adding as an argument to the Runner class `class Runner(Athlete)`. A class can inherit
-from more than one class e.g. `class Runner(Athlete, TeamMember)`.
+Key concepts in the code:
 
-To access the attributes of the parent class, the constructor uses `super().__init__()` to specify the attributes
-inherited.
-
-The Runner class now has access to the args and methods of the Athlete class and can also add its own specific
-attribute (`distance`), and methods (`race_info()`).
+- `class Runner(Athlete)`: the Runner class inheirts from Athlete. A class can inherit from more than one class e.g.
+  `class Runner(Athlete, TeamMember)`.
+- `super().__init__()`: calls the constructor of the parent class to initialise inherited attributes.
+- The Runner subclass now has access to the args and methods of the Athlete class and can also add its own specific
+  attributes (e.g. `distance`), and methods ( e.g. `race_info()`).
 
 ## Class composition
 
-Composition in Python is a design principle where a class is made up of one or more objects from other classes, rather
+Composition is a design principle where a class is made up of one or more objects from other classes, rather
 than inheriting from them.
 
-Imagine that an Athlete can have a list of Medal objects. Type hints have been added to the constructor to make it clear
-that medals is a List of Medal objects.
+For example, an Athlete can have a list of Medal objects.
 
 ```python
 from dataclasses import dataclass
@@ -81,7 +81,13 @@ class Athlete:
         self.medals = medals  # Composition: Athlete has Medals
 ```
 
+Note: The code above include [type annotations](https://typing.python.org/en/latest/spec/annotations.html). Type
+annotations (type hints) are an optional notation in Python that specifies te tyoe of a parameter or function result. It
+tells the programme using the function or class what kind of data to pass and what kind of data to expect when a value
+is returned.
+
 To create an athlete with medals:
+
 ```python
 # Create medals
 medal1 = Medal("gold", "Paris 2024 design", date(2023, 7, 1))
@@ -100,6 +106,7 @@ print(athlete)
 ```
 
 ## Activity
-1. Modify your Athlete code to add the list of medals as an attribute.
+
+1. Modify your `Athlete` class to include a list of `Medal` objects as an attribute.
 
 [Next activity](5-03-pydantic.md)
