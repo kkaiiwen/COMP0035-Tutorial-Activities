@@ -101,20 +101,29 @@ def create_db(schema_path, db_path):
         db_path (str): Path where the SQLite database will be created.
     """
 
-    # Create a connection
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
-
-    # Read the SQL schema file
-    with open(schema_path, 'r') as f:
-        schema_sql = f.read()
-
-    # Execute the schema SQL
-    cursor.executescript(schema_sql)
-
-    # Commit and close the connection
-    conn.commit()
-    conn.close()
+    try:
+        # Create a connection
+        conn = sqlite3.connect(db_path)
+        cursor = conn.cursor()
+        # Read the SQL schema file
+        with open(schema_path, 'r') as f:
+            schema_sql = f.read()
+        # Execute the schema SQL
+        cursor.executescript(schema_sql)
+        # Commit the connection
+        conn.commit()
+    
+    except FileNotFoundError as e:
+        print(f"Schema file not found: {e}")
+    except sqlite3.OperationalError as e:
+        print(f"SQL error while creating database: {e}")
+    except sqlite3.IntegrityError as e:
+        print(f"Integrity issue: {e}")
+    
+    finally:
+        #. Close the connection
+        conn.close()
+        print("Database connection closed.")
 
 
 # Activity 4.7 add exception handling to this function
@@ -133,12 +142,26 @@ def describe(file_path):
             FileNotFoundError: If the file does not exist.
 
     """
-    df = pd.read_csv(file_path)
-
-    # 2.3 Describe
-    pd.set_option("display.max_columns", None)  # Change the pandas display options to print all columns
-    print("\nThe number of rows and columns\n", df.shape)
-    print("\nThe first 5 rows\n", df.head(5))
+    try:
+        df = pd.read_csv(file_path)
+        # 2.3 Describe
+        pd.set_option("display.max_columns", None)  # Change the pandas display options to print all columns
+        print("\nThe number of rows and columns\n", df.shape)
+        print("\nThe first 5 rows\n", df.head(5))
+    
+    except FileNotFoundError as e:
+        print(f"File not found: {e}")
+    except pd.errors.EmptyDataError:
+        print("The file is empty.")
+    except pd.errors.ParserError as e:
+        print(f"Error parsing CSV: {e}")
+    except (AttributeError, KeyError) as e:
+        print(f"Data error: {e}")
+    else:
+        print("File successfully read and described.")
+    
+    finally:
+        print("Finished describing the file.")
 
 
 if __name__ == '__main__':
