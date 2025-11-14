@@ -3,7 +3,7 @@ import sqlite3
 
 import pandas as pd
 from matplotlib import pyplot as plt
-
+from contextlib import redirect_stdout
 
 # Google-style docstring specification: https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings
 def get_column_names_g(db_path: str, table_name: str) -> list:
@@ -76,6 +76,18 @@ def get_column_names_s(db_path: str, table_name: str) -> list:
 # Copilot in VSCode / PyCharm
 # Place the cursor under the function name and generate a docstring e.g. '/doc Google-style docstring'
 def generate_histogram(df: pd.DataFrame):
+    """Generate and save histograms for the Paralympics dataset.
+
+    Creates several histogram visualizations from the provided DataFrame:
+      1. Histograms for all numeric columns.
+      2. Histograms specifically for 'participants_m' and 'participants_f'.
+      3. Histograms for the subset of data where the 'type' is 'summer'.
+
+    Each histogram is saved to the 'output' directory as a PNG image.
+
+    Args:
+        df (pd.DataFrame): The DataFrame containing Paralympics event data.
+    """
     # Histogram of any columns with values of a data type that can be plotted
     df.hist(
         sharey=False,  # defines whether y-axes will be shared among subplots.
@@ -109,7 +121,19 @@ def describe(csv_data_file: str) -> dict:
 
        Args:
        csv_data_file (str): File path of the .csv format data file.
-
     """
+    # Load CSV file as DataFrame
+    df = pd.read_csv(csv_data_file)
 
-    pass
+    # Redirect all print output to a file instead of the terminal
+    with open("output/describe.txt", "w") as f:
+        with redirect_stdout(f):
+            print("=== DataFrame Description ===\n")
+            print("Shape:", df.shape)
+            print("\nHead:\n", df.head())
+            print("\nTail:\n", df.tail())
+            print("\nColumns:\n", df.columns)
+            print("\nData Types:\n", df.dtypes)
+            print("\nDescriptive Statistics:\n", df.describe())
+            print("\nInfo:")
+            df.info()
