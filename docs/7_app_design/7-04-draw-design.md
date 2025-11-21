@@ -1,8 +1,8 @@
 # 3. Determine the application structure
 
 Model-View-Controller (MVC) MVC is a common design pattern for web applications. This activity assumes a decision has been made to structure the 
-app in accordance the MVC pattern. You are not required to follow this pattern in your coursework. It is used here for
-speed in the tutorial so you don't have to start from a blank sheet in determining the app structure.
+app in accordance with the MVC pattern. You are not required to follow this pattern in your coursework. It is used here for
+speed in the tutorial, so you don't have to start from a blank sheet in determining the app structure.
 
 ## MVC design pattern
 
@@ -16,7 +16,7 @@ Key concepts:
 
 **Routes and controllers**
 
-Each _route_ in a web app has a _controller_ action. When a user entera a URL, the application attempts match it to a
+Each _route_ in a web app has a _controller_ action. When a user entera a URL, the application attempts to match it to a
 defined route, and, if successful, calls that route's controller action. The controller typically:
 - Retrieves data from the model (e.g., via a database)
 - Passes that data to a view, which renders the page
@@ -143,12 +143,12 @@ classDiagram
 
 ## Add the controller classes
 
-These control the business logic. I have grouped them according to function, you may choose a different way to group
+These control the business logic. I have grouped them according to function; you may choose a different way to group
 them. There is no single way to design these!
 
 If not following the MVC model, these operations may be in the relevant model classes.
 
-The logic to create, read, update and delete any of the model classes will be handled by the ORM so have not been added
+The logic to create, read, update and delete any of the model classes will be handled by the ORM, so has not been added
 here. You can add them to the class diagram if you prefer.
 
 ```mermaid

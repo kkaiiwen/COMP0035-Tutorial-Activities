@@ -16,15 +16,14 @@ instruction.
 This is an abbreviated version of user stories for the design activity. The "... so that ...", prioritisation and
 reference number have been omitted.
 
-- As a student I want to see the medal results table for each paralympic games. I want to be able to filter the list for
+- As a student I want to see the medal results table for each paralympics. I want to be able to filter the list for
   the top 10.
-- As a student I want to enter the country name and future year and get a prediction of the gold, silver and bronze
+- As a student, I want to enter the country name and future year and get a prediction of the gold, silver and bronze
   medals for that country in the specified paralympics.
-- As a student I want to be able to predict the top 10 countries in the next paralympics.
-- As a system administrator I want to add new data to the database when future paralympics take place.
+- As a student, I want to be able to predict the top 10 countries in the next paralympics.
+- As a system administrator, I want to add new data to the database when future paralympics take place.
 
-For the purposes of the activity, assume that it is possible to create machine learning models that can predict the
-results.
+For the activity, assume that it is possible to create machine learning models that can predict the results.
 
 ### ERD
 
@@ -89,7 +88,7 @@ erDiagram
 Refer to activities 1 to 4 to help you.
 
 1. Review the user stories to identify potential classes and their attributes and operations (functions). Underline
-   nouns (potential classes or attribute), verbs or verb phrases (potential functions).
+   nouns (potential classes or attributes), verbs or verb phrases (potential functions).
 2. Review the classes in the ERD.
 3. Combine the classes and review for duplicates.
 4. Draw the class diagram. Add the classes. Draw the relationships between the classes.

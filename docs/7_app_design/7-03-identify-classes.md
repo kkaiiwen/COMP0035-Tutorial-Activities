@@ -161,7 +161,7 @@ Consider any missing attributes and add them.
 
 You could also review the classes and functions against the wireframes to check for completeness, e.g.
 
-![Identifying potential functions from a wireframe](../../img/wireframe-functions.png)
+![Identifying potential functions from a wireframe](../img/wireframe-functions.png)
 
 > Review the list of functions. You will need to complete the following with the results of the previous step:
 

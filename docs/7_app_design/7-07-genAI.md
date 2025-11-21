@@ -17,22 +17,22 @@ The following tools were tried in relation to this week's activities:
 - [Microsoft copilot - accessed using UCL account](https://copilot.microsoft.com)
 
     - The prompt used was: `generate a class diagram from the attached user stories`
-      with [user-stories.md](user-stories.md) attached.
+      with [user-stories.md](7-08-user-stories.md) attached.
     - The response is below and includes classes and attributes, and relationships. It did not identify class
       operations (functions). I entered a subsequent prompt `add methods to all classes`
-    - A subsequent prompt was then entered:
+    - A following prompt was then entered:
       `To what extent does this class diagram meet the principles of low coupling and high cohesion?` and again the
       response is below.
-- [chatGPT - free 'everyday tasks' version](https://chatgpt.com)
+- [ChatGPT - free 'everyday tasks' version](https://chatgpt.com)
 
     - the same prompt was used as for copilot. The result included methods as well as classes and attributes,
       and relationships between classes.
-    - ChatGPT offered to draw this as a diagram but the result was not meaningful.
+    - ChatGPT offered to draw this as a diagram, but the result was not meaningful.
     - A second prompt was used:
       `To what extent does this class diagram meet the principles of low coupling and high cohesion?`. The response to
       this was detailed and is included below.
     - A third prompt was used:
-      `Modify the design so that it is consistent with the model view controller design pattern`. Again the response is
+      `Modify the design so that it is consistent with the model view controller design pattern`. Again, the response is
       below.
 
 As a learning outcome, it is recommended that you first attempt the activities without using gen AI tools as you need to
@@ -115,7 +115,7 @@ Cohesion refers to how closely related the responsibilities of a class are.
   Quiz, Question, and Answer classes: Each focuses on a single concept — managing quizzes, questions, and answers
   respectively. Their methods (e.g. addQuestion(), editQuestion()) are tightly related to their core purpose.
 - Score: Manages scoring logic and data, with methods like calculateScore() and downloadScore() — again, cohesive.
-- Event and Chart: These are focused on data visualization and filtering, which keeps their responsibilities
+- Event and Chart: These are focused on data visualisation and filtering, which keeps their responsibilities
   well-defined.
 
 - Conclusion: Most classes have a clear, focused purpose, which supports high cohesion.
@@ -137,7 +137,7 @@ Areas to watch:
 - Chart depends on Event data — this is acceptable, but if Chart directly manipulates Event objects, it could be tightly
   coupled. A data access layer or API abstraction could help.
 
-Conclusion: Coupling is generally low, but could be improved by abstracting direct object references where possible.
+Conclusion: Coupling is generally low but could be improved by abstracting direct object references where possible.
 
 ##### 🛠️ Suggestions for Improvement
 
@@ -149,8 +149,8 @@ Conclusion: Coupling is generally low, but could be improved by abstracting dire
 
 Prompt: `Generate a class diagram from the attached user stories. Include methods. Use Python style naming convention.`
 
-The response was a diagram. Note that this is clearly an AI generated diagram and not your own. A person would not
-be likely to create a diagram using a cumbersome method of typing `+----` etc. in the terminal.
+The response was a diagram. Note that this is clearly an AI-generated diagram since a person is unlikely to create a
+diagram using a cumbersome method of typing `+----` etc. in the terminal.
 
 ```
 +--------------------+
@@ -282,13 +282,13 @@ Coupling refers to how dependent classes are on each other.
         - Quiz, Question, Answer, Score for assessment.
         - StatisticsService and DataUpdateService as independent services.
 
-    - Associations use composition/aggregation (e.g., Quiz contains Question, Question contains Answer), which is
+    - Associations use composition/aggregation (e.g. Quiz contains Question, Question contains Answer), which is
       natural and minimal.
     - Services (StatisticsService, DataUpdateService) are not entangled with User or Quiz objects, reducing
       dependencies.
 
 - Potential Coupling Issues:
-    - Score depends on both Student and Quiz, creating multiple links. This is acceptable since score logically ties
+    - Score depends on both Student and Quiz, creating multiple links. This is acceptable since 'score' logically ties
       both, but it increases coupling.
     - If the statistics service directly queried Quiz or Score objects rather than being an independent data layer,
       coupling could grow.
@@ -297,6 +297,7 @@ Coupling refers to how dependent classes are on each other.
 layer) would reduce dependencies further.
 
 🔹 High Cohesion
+
 Cohesion means each class has a single, well-defined responsibility.
 
 - Strengths:
@@ -325,7 +326,7 @@ classes for cleaner separation.
 👉 On balance: The diagram meets the principles well, but refinement is possible to further reduce coupling and
 strengthen cohesion.
 
-Would you like me to refactor the diagram to show an improved version (e.g., moving browsing/stats into a
+Would you like me to refactor the diagram to show an improved version (e.g. moving browsing/stats into a
 ParalympicsInfoService, and score handling into a ScoreService)?
 
 ## Modify the design to conform to MVC
@@ -349,7 +350,7 @@ The idea is:
 * `User` (abstract), `Student`, `Teacher`, `SystemAdministrator`
 * `Quiz`, `Question`, `Answer`, `Score`
 * `StatisticsService` (business logic for trends, filtering)
-* `DataUpdateService` (synchronization with API)
+* `DataUpdateService` (synchronisation with API)
 
 ---
 
